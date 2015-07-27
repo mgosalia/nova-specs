@@ -59,7 +59,7 @@ assigned to him.
      number of instances being created in that AZ.
 
 2. If Alice has assigned quota based on dynamic quota resources for Bob, he
-   will want to pass a     quota resource against which his quota should be
+   will want to pass a quota resource against which his quota should be
    considered.
 
 
@@ -196,11 +196,11 @@ quota-set dictionary.
    will be able to increment quota value of appropriate dynamic quota resource
    associated with the instance.
 
-7. For all quota calculations, all the static resources are hard-coded and the
-   resource dictionary is formed at the time of service initialization. So,
-   multiple api workers form the same resource dictionary. With quota resources
-   being created dynamically, we will have to query the DB
-   (dynamic_quota_resources table) before every quota operation, to get the
+7. Currently, for all quota calculations, all the static resources are 
+   hard-coded and the resource dictionary is formed at the time of service
+   initialization. So, multiple api workers form the same resource dictionary.
+   With quota resources being created dynamically, we will have to query the 
+   DB (dynamic_quota_resources table) before every quota operation, to get the
    latest resource dictionary.  
 
 Alternatives
@@ -245,7 +245,8 @@ None
 Performance Impact
 ------------------
 
-None
+* DB query will have to made for every quota calculation to grab all dynamic 
+  quota resources.
 
 Other deployer impact
 ---------------------
