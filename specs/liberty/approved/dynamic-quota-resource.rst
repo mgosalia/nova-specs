@@ -30,7 +30,7 @@ Problem description
   all quota resources - static and dynamic.
 
 **How an admin chooses to make the selection of hardware is out of scope of
-  this spec.**
+this spec.**
 
 Use Cases
 ---------
@@ -212,6 +212,7 @@ Data model impact
 -----------------
 
 * Create a new table dynamic_quota_resources with following spec::
+
     CREATE TABLE `dynamic_quota_resource` (
       `id` int(11) NOT NULL AUTO_INCREMENT,
       `resource` varchar(255) NOT NULL,
@@ -294,7 +295,7 @@ Testing
   * test creation of dynamic quota resource
   * show dynamic quota resources during os-quota-sets api call
   * increment/decrement dynamic quota resource value during creation/deletion
-    of instance using dynamic quota resource
+ of instance using dynamic quota resource
 
 Documentation Impact
 ====================
