@@ -56,7 +56,7 @@ assigned to him.
      for testing purposes and want to restrict total number of instances being
      created using that flavor.
   c. There is a special availability zone and Alice wants to restrict total
-    number of instances being created in that AZ.
+     number of instances being created in that AZ.
 
 2. If Alice has assigned quota based on dynamic quota resources for Bob, he
    will want to pass a     quota resource against which his quota should be
@@ -291,11 +291,11 @@ None
 Testing
 =======
 
-* Apart from unit tests, functional tests will be added to - 
-  * test creation of dynamic quota resource
-  * show dynamic quota resources during os-quota-sets api call
-  * increment/decrement dynamic quota resource value during creation/deletion
- of instance using dynamic quota resource
+ * Apart from unit tests, functional tests will be added to - 
+    * test creation of dynamic quota resource
+    * show dynamic quota resources during os-quota-sets api call
+    * increment/decrement dynamic quota resource value during creation/deletion
+      of instance using dynamic quota resource
 
 Documentation Impact
 ====================
