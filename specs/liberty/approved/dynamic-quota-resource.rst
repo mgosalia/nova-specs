@@ -291,10 +291,10 @@ None
 Testing
 =======
 
- * Apart from unit tests, functional tests will be added to - 
-    * test creation of dynamic quota resource
-    * show dynamic quota resources during os-quota-sets api call
-    * increment/decrement dynamic quota resource value during creation/deletion
+1. Apart from unit tests, functional tests will be added to - 
+    1. test creation of dynamic quota resource
+    2. show dynamic quota resources during os-quota-sets api call
+    3. increment/decrement dynamic quota resource value during creation/deletion
       of instance using dynamic quota resource
 
 Documentation Impact
