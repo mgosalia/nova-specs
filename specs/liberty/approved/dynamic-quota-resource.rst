@@ -78,7 +78,7 @@ associated value. It could be sent as individual key-value pairs in the
 quota-set dictionary. 
  
  a. Currently nova quota-update calls os-quota-sets wsgi extension with
-following payload
+    following payload
   
   * -d '{"quota_set": {"tenant_id": "7c0d996ce4e14d86aca38878eb765a68",
     "cores": "12" }}'  
