@@ -24,9 +24,8 @@ Problem description
   dynamic resource.
 * This is in relation to usecases, where an openstack admin wants to allow a
   specific project to create only 5 instances in a particular availability
-zone,
-  particular flavor type, hardware type (SSD) or any random category that an
-  admin chooses.
+  zone, particular flavor type, hardware type (SSD) or any random category that
+  an admin chooses.
 * Quota calculation during instance creation and deletion should be based on
   all quota resources - static and dynamic.
 
@@ -86,11 +85,9 @@ following payload
 
  b. It would be great if cloud admin could name the dynamic quota resource with
     whatever name he wants. We will not do any validation on the name of the
-quota
-    resource. We will only validate if the type of value is integer. So, we
-will
-    need to update the the extension to accept arbitrary key value pairs. For
-    example -
+    quota resource. We will only validate if the type of value is integer. So, 
+    we will need to update the the extension to accept arbitrary key value 
+    pairs. For example -
 
   * -d '{"quota_set": {"tenant_id": "7c0d996ce4e14d86aca38878eb765a68",
     "cores": "12", "ssd_hw": "5", "flavor_xyz": "1", "special_az": "5" }}' 
@@ -166,8 +163,7 @@ will
 
 5. When user does a nova quota-show or uses the API, he will get information on
    the dynamic quota resources for which his project has been assigned quota
-for.
-   For example::
+   for. For example::
     +--------------+-------+    
     | Quota        | Limit |
     +--------------+-------+
@@ -187,29 +183,25 @@ for.
      to get an input from the user as to against which dynamic quota resource,
      should his request be tracked. This input could also be used in one of the
      hardware selection scheduler filter. (How filter will use this information
-is
-     out of scope of this spec). We will throw an exception if a dynamic quota
-     resource is assigned for a project and the user has not specified one.
+     is out of scope of this spec). We will throw an exception if a dynamic 
+     quota resource is assigned for a project and the user has not specified one.
 
       * nova boot --flavor <flavor> --image <image> --dynamic_quota_resource
         <dynamic quota resource>
 
 6. Once dynamic quota resource name is obtained, it will be used while creating
    quota reservations. Value of the dynamic quota resource will be decremented
-by
-   1. Also, we will store the resource-id of the dynamic quota resource during
-   instance creation. This will help us during instance deletion and we will be
-   able to increment quota value of appropriate dynamic quota resource
-associated
-   with the instance.
+   by 1. Also, we will store the resource-id of the dynamic quota resource 
+   during instance creation. This will help us during instance deletion and we
+   will be able to increment quota value of appropriate dynamic quota resource
+   associated with the instance.
 
 7. For all quota calculations, all the static resources are hard-coded and the
    resource dictionary is formed at the time of service initialization. So,
    multiple api workers form the same resource dictionary. With quota resources
    being created dynamically, we will have to query the DB
    (dynamic_quota_resources table) before every quota operation, to get the
-latest
-   resource dictionary.  
+   latest resource dictionary.  
 
 Alternatives
 ------------
@@ -299,7 +291,8 @@ None
 Testing
 =======
 
-1. Apart from unit tests, functional tests will be added to - 
+1. Apart from unit tests, functional tests will be added related to items 
+   below.
     1. test creation of dynamic quota resource.
     2. show dynamic quota resources during os-quota-sets api call.
     3. increment/decrement dynamic quota resource value during
