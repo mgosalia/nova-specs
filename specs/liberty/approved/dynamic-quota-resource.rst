@@ -296,7 +296,7 @@ Testing
     1. test creation of dynamic quota resource.
     2. show dynamic quota resources during os-quota-sets api call.
     3. increment/decrement dynamic quota resource value during
-creation/deletion of instance using dynamic quota resource.
+       creation/deletion of instance using dynamic quota resource.
 
 Documentation Impact
 ====================
